@@ -6,7 +6,7 @@ var Post = require("./models/post");
 app.use(require("./controllers/api/posts"));
 
 app.get ("/", function (req, res) {
-  res.sendFile("~/SocialNetworks/layouts/post.html");
+  res.sendFile("layouts/post.html", {"root": __dirname});
 });
 
 app.listen(3000, function() {
