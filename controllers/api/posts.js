@@ -13,7 +13,11 @@ router.get ("/", function (req, res, next) {
 });
 
 router.post ("/", function (req, res, next) {
-  var post = new Post ({
+  if(req){
+      console.log("request is valid");
+  }
+      
+    var post = new Post ({
     username: req.body.username,
     body: req.body.body
   })
