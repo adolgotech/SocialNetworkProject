@@ -1,4 +1,4 @@
-var Post = require("../../models/post");
+var Post = require("~/SocialNetworkProject/models/post");
 var router = require("express").Router();
 
 router.get ("/api/posts", function (req, res, next) {
