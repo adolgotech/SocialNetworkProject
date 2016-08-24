@@ -1,6 +1,8 @@
 var Post = require("../../models/post");
 var router = require("express").Router();
 
+router.use(bodyParser.json());
+
 router.get ("/", function (req, res, next) {
   Post.find()
   .sort("-date")
@@ -13,11 +15,7 @@ router.get ("/", function (req, res, next) {
 });
 
 router.post ("/", function (req, res, next) {
-  if(req){
-      console.log("request is valid");
-  }
-      
-    var post = new Post ({
+  var post = new Post ({
     username: req.body.username,
     body: req.body.body
   })
