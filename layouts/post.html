@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body ng-app="app">
     <div ng-controller="PostsCtrl" class="container">
@@ -24,29 +24,7 @@
         </ul>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <script>
-        var app = angular.module("app", [])
-        app.controller("PostsCtrl", function($scope, $http){
-            // this function runs when the "Add Post" button is clicked
-            $scope.addPost = function(){
-                // only add a post if there is a body
-                if($scope.postBody){
-                    $http.post("/api/posts", {
-                        username: "taylorxxx", 
-                        body: $scope.postBody
-                    }).success(function(post){
-                        $scope.posts.unshift(post);
-                        $scope.postBody = null;
-                    });
-                }
-            };
-            
-            $http.get("/api/posts")
-            .success(function(posts){
-                $scope.posts = posts;
-            });
-        })
-    </script>
+    <script src="/app.js"></script>
 </body>
-    
+
 </html>
