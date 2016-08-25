@@ -23,7 +23,7 @@ router.post ("/", function (req, res, next) {
       return next(err);
     }
     res.json(201, post);
-  })
+  });
   console.log("post received!");
   console.log(req.body.username);
   console.log(req.body.body);
