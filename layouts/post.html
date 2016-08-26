@@ -2,6 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="/app.css">
 </head>
 <body ng-app="app">
     <div ng-controller="PostsCtrl" class="container">
@@ -17,7 +18,7 @@
             </div>
         </form>
         <ul class="list-group">
-            <li ng-repeat="post in posts" class="list-group-item">
+            <li ng-repeat="post in posts | orderBy: '-date'" class="list-group-item">
                 <strong>@{{post.username}}</strong>
                 <span>{{post.body}}</span>
             </li>
