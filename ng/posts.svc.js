@@ -5,6 +5,6 @@ angular.module('app')
   };
 
   this.create = function(post){
-    return $http.post("/api/posts");
+    return $http.post("/api/posts", post);
   };
 });
