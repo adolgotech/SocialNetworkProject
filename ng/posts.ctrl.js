@@ -1,5 +1,5 @@
 angular.module('app')
-.controller("PostsCtrl", function($scope, /*$http,*/ PostsSvc){
+.controller("PostsCtrl", function($scope, PostsSvc){
     // this function runs when the "Add Post" button is clicked
     $scope.addPost = function(){
         // only add a post if there is a body
