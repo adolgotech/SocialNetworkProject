@@ -5,11 +5,11 @@ var uglify = require('gulp-uglify');
 var annotate = require('gulp-ng-annotate');
 
 gulp.task('js', function(){
-  gulp.src(['ng/modules.js', 'ng/**/*.js'])
+  gulp.src(['ng/module.js', 'ng/**/*.js'])
     .pipe(sourcemaps.init())
       .pipe(concat('app.js'))
       .pipe(annotate())
-      .pipe(uglify())
+      // .pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('assets'));
 });
