@@ -8,16 +8,22 @@ var bodyParser = require("body-parser");
 router.use(bodyParser.json());
 // to create user
 router.post('/', function(req, res, next){
-  var user = new User( { username: req.body.username } );
-  bcrypt.hash(req.body.password, 10, function(err, hash){
-    if(err) { return next(err) }
-    user.password = hash;
-    user.save(function(err){
-      if(err) {
-        return next(err);
-      }
-      res.send(201);
-    });
+  User.count({username: req.body.username}, function(err, cnt) {
+    if(cnt > 0){
+      res.send(422);
+    } else {
+      var user = new User( { username: req.body.username } );
+      bcrypt.hash(req.body.password, 10, function(err, hash){
+        if(err) { return next(err) }
+        user.password = hash;
+        user.save(function(err){
+          if(err) {
+            return next(err);
+          }
+          res.send(201);
+        });
+      });
+    }
   });
 });
 
