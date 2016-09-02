@@ -18,6 +18,11 @@ angular.module('app')
   svc.register = function(username, password) {
     return $http.post('/api/users', {
       'username': username, 'password': password
-    })
+    }).then(function(res){
+      if(res.status == 201)
+      {
+        return svc.login(username, password);
+      }
+    });
   }
 });

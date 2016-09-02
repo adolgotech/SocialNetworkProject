@@ -8,11 +8,17 @@ angular.module('app')
                 username: 'taylorxxx',
                 body: $scope.postBody
             }).then(function(post){
-                $scope.posts.unshift(post.data);
+                // $scope.posts.unshift(post.data);
                 $scope.postBody = null;
             });
         }
     };
+
+    $scope.$on('ws:new_post', function(_, post) {
+      $scope.$apply(function() {
+        $scope.posts.unshift(post);
+      })
+    })
 
     PostsSvc.fetch()
     .then(function(posts){
