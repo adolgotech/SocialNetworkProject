@@ -1,10 +1,9 @@
-aws = require('aws_config');
 angular.module('app')
 .run(function ($rootScope, $timeout) {
   (function connect() {
     var url = '';
-    if(aws) {
-      url = aws.ws_url;
+    if($rootScope.aws) {
+      url = $rootScope.aws.ws_url;
     }
     else {
       url = 'ws://localhost:3000';
