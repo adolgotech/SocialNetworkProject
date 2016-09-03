@@ -1,7 +1,14 @@
+aws = require('aws_config');
 angular.module('app')
 .run(function ($rootScope, $timeout) {
   (function connect() {
-    var url = 'ws://localhost:3000';
+    var url = '';
+    if(aws) {
+      url = aws.ws_url;
+    }
+    else {
+      url = 'ws://localhost:3000';
+    }
     var connection = new WebSocket(url);
     connection.onclose = function (e) {
       console.log('WebSocket closed. Reconnecting...');
