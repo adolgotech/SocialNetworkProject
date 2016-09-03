@@ -1,2 +1,0 @@
-# SocialNetworkProject
-MEAN stack Tutorial
