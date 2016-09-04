@@ -1,5 +1,5 @@
 angular.module('app')
-.service('WebSocketSvc', function ($rootScope, $timeout) {
+.service('WebSocketSvc', function ($rootScope, $window, $timeout) {
   var connection;
   function websocketHost() {
     if($window.location.protocol === "https:") {
@@ -8,7 +8,7 @@ angular.module('app')
       return "ws://" + $window.location.host;
     }
   }
-  
+
   this.connect = function () {
     connection = new WebSocket(websocketHost());
     connection.onclose = function (e) {
