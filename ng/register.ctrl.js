@@ -3,9 +3,11 @@ angular.module('app')
   $scope.register = function(username, password) {
     UserSvc.register(username, password)
     .then(function(response){
-      $scope.$emit('login', response.data);
-      $scope.username = null;
-      $scope.password = null;
+      if(response) {
+        $scope.$emit('register');
+        $scope.username = null;
+        $scope.password = null;
+      }
     });
   }
 });

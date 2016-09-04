@@ -5,11 +5,11 @@ angular.module('app')
         // only add a post if there is a body
         if($scope.postBody){
             PostsSvc.create({
-                username: 'taylorxxx',
                 body: $scope.postBody
             }).then(function(post){
-                // $scope.posts.unshift(post.data);
-                $scope.postBody = null;
+                if(post.status == 201) {
+                  $scope.postBody = null;
+                }
             });
         }
     };

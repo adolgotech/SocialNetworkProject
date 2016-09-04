@@ -15,13 +15,20 @@ angular.module('app')
     });
   }
 
+  svc.logout = function(){
+    svc.token = '';
+    $http.defaults.headers.common['X-Auth'] = '';
+  }
+
   svc.register = function(username, password) {
     return $http.post('/api/users', {
       'username': username, 'password': password
     }).then(function(res){
-      if(res.status == 201)
-      {
-        return svc.login(username, password);
+      if(res.status == 201) {
+        return true;
+        // return svc.login(username, password);
+      } else {
+        return false;
       }
     });
   }
