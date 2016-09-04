@@ -9,9 +9,9 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="/app.css">
 </head>
-<body ng-app='app' ng-controller='ApplicationCtrl' class="container">
-	<nav class="navbar navbar-default">
-		<div class="container">
+<body ng-app='app' ng-controller='ApplicationCtrl'>
+	<nav class="navbar navbar-default" ng-cloak>
+		<div class="container-fluid">
 			<ul class="nav navbar-nav">
 				<li><a class="posts" href="/#/">Posts</a></li>
 			</ul>
@@ -27,7 +27,7 @@
 			</p>
 		</div>
 	</nav>
-	<div class="container">
+	<div class="container-fluid">
 		<div ng-view></div>
 	</div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
